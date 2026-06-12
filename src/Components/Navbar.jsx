@@ -1,35 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Navbar() {
+
+        let [settingData, setSettingData] = useState({
+            siteName: import.meta.env.VITE_APP_SITE_NAME,
+            map1: import.meta.env.VITE_APP_MAP1,
+            map2: import.meta.env.VITE_APP_MAP2,
+            address: import.meta.env.VITE_APP_ADDRESS,
+            phone: import.meta.env.VITE_APP_PHONE,
+            email: import.meta.env.VITE_APP_EMAIL,
+            facebook: import.meta.env.VITE_APP_FACEBOOK,
+            twitter: import.meta.env.VITE_APP_TWITTER,
+            instagram: import.meta.env.VITE_APP_INSTAGRAM,
+            whatsapp: import.meta.env.VITE_APP_WHATSAPP,
+            linkedin: import.meta.env.VITE_APP_LINKEDIN,
+            youtube: import.meta.env.VITE_APP_YOUTUBE
+        });
+
   return (
    <>
          
           <div className="container-fluid topbar bg-secondary d-none d-xl-block w-100">
               <div className="container">
-                  <div className="row gx-0 align-items-center" style={{height: 45}}>
+                  <div className="row gx-0 align-items-center" style={{height: "45px"}}>
                       <div className="col-lg-6 text-center text-lg-start mb-lg-0">
                           <div className="d-flex flex-wrap">
-                              <a href="#" className="text-muted me-4"><i className="fas fa-map-marker-alt text-primary me-2"></i>Find A Location</a>
-                              <a href="tel:+01234567890" className="text-muted me-4"><i className="fas fa-phone-alt text-primary me-2"></i>+01234567890</a>
-                              <a href="mailto:example@gmail.com" className="text-muted me-0"><i className="fas fa-envelope text-primary me-2"></i>Example@gmail.com</a>
+                              {/* <a href={settingData.map1} className="text-muted me-4"><i className="fas fa-map-marker-alt text-primary me-2"></i><span className='btn btn-light btn-sm-square rounded-circle me-3'></span></a>
+                              <a href={`mailto:${settingData.email}`} className="text-muted me-0"><i className="fas fa-envelope text-primary me-2"></i><span className='btn btn-light btn-sm-square rounded-circle me-3'></span></a>
+                              <a href={`tel:${settingData.phone}`} className="text-muted me-4"><i className="fas fa-phone-alt text-primary me-2"></i><span className='btn btn-light btn-sm-square rounded-circle me-3'></span></a>
+                              <a href={settingData.whatsapp} className="text-muted me-4"><i className="fab fa-whatsapp text-primary me-2"></i><span className='btn btn-light btn-sm-square rounded-circle me-3'></span></a> */}
+                              <div className="d-flex align-items-center justify-content-end">
+                                  <a href={settingData.map1} target='_blank' className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fas fa-map-marker-alt"></i></a>
+                                  <a href={`mailto:${settingData.email}`} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fas fa-envelope"></i></a>
+                                  <a href={`tel:${settingData.phone}`} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fas fa-phone"></i></a>
+                                  <a href={`https://wa.me/${settingData.whatsapp}`} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-0"><i className="fab fa-whatsapp"></i></a>
+                              </div>
                           </div>
                       </div>
                       <div className="col-lg-6 text-center text-lg-end">
                           <div className="d-flex align-items-center justify-content-end">
-                              <a href="#" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-facebook-f"></i></a>
-                              <a href="#" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-twitter"></i></a>
-                              <a href="#" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-instagram"></i></a>
-                              <a href="#" className="btn btn-light btn-sm-square rounded-circle me-0"><i className="fab fa-linkedin-in"></i></a>
+                              <a href={settingData.facebook} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-facebook-f"></i></a>
+                              <a href={settingData.twitter} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-twitter"></i></a>
+                              <a href={settingData.instagram} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-3"><i className="fab fa-instagram"></i></a>
+                              <a href={settingData.linkedin} target="_blank" className="btn btn-light btn-sm-square rounded-circle me-0"><i className="fab fa-linkedin-in"></i></a>
                           </div>
                       </div>
                   </div>
               </div>
-          </div>
+          </div> 
           <div className="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
               <div className="container">
                   <nav className="navbar navbar-expand-lg navbar-light">
                       <a href="" className="navbar-brand p-0">
-                          <h1 className="display-6 text-primary"><i className="fas fa-car-alt me-3"></i>Cental</h1>
+                          <h1 className="display-6 text-primary"><i className="fas fa-car-alt me-3"></i>{settingData.siteName}</h1>
                        {/* <img src="img/logo.png" alt="Logo"/> */}
                       </a>
                       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
