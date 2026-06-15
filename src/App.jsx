@@ -26,9 +26,10 @@ export default function App() {
         <Route path='/car' element={<CarsPage />} />
         <Route path='/car/:id' element={<CarDetailsPage />} />
         <Route path='/testimonial' element={<TestimonialPage />} />
-        <Route path='/contact' element={<ContactUsPage />} />
+        <Route path='/contactus' element={<ContactUsPage />} />
         <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
         <Route path='/tc' element={<TermsAndConditions />} />
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

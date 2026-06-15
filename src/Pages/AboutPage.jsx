@@ -9,7 +9,7 @@ import Stats from '../Components/Stats'
 export default function AboutPage() {
   return (
     <>
-      <Breadcrum title="About Us"/>
+      <Breadcrum title="About Us" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
       <About/>
       <Stats/>
       <Feature/>

@@ -1,7 +1,26 @@
 import React from 'react'
+import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import Breadcrum from '../Components/Breadcrum'
 
 export default function ContactUsPage() {
+
+  let [settingData, setSettingData] = useState({
+
+    siteName: import.meta.env.VITE_APP_SITE_NAME,
+    map1: import.meta.env.VITE_APP_MAP1,
+    map2: import.meta.env.VITE_APP_MAP2,
+    address: import.meta.env.VITE_APP_ADDRESS,
+    phone: import.meta.env.VITE_APP_PHONE,
+    email: import.meta.env.VITE_APP_EMAIL,
+    facebook: import.meta.env.VITE_APP_FACEBOOK,
+    twitter: import.meta.env.VITE_APP_TWITTER,
+    instagram: import.meta.env.VITE_APP_INSTAGRAM,
+    whatsapp: import.meta.env.VITE_APP_WHATSAPP,
+    linkedin: import.meta.env.VITE_APP_LINKEDIN,
+    youtube: import.meta.env.VITE_APP_YOUTUBE
+  })
+
   return (
    <>
    <Breadcrum title="Contact Us"/>
@@ -22,7 +41,7 @@ export default function ContactUsPage() {
                     </div>
                     <div>
                       <h4>Address</h4>
-                      <p className="mb-0">123 Street New York.USA</p>
+                      <p className="mb-0">{settingData.address}</p>
                     </div>
                   </div>
                 </div>
@@ -33,7 +52,7 @@ export default function ContactUsPage() {
                     </div>
                     <div>
                       <h4>Mail Us</h4>
-                      <p className="mb-0">info@example.com</p>
+                      <p className="mb-0">{settingData.email}</p>
                     </div>
                   </div>
                 </div>
@@ -44,7 +63,7 @@ export default function ContactUsPage() {
                     </div>
                     <div>
                       <h4>Telephone</h4>
-                      <p className="mb-0">(+012) 3456 7890</p>
+                      <p className="mb-0">{settingData.phone}</p>
                     </div>
                   </div>
                 </div>
@@ -55,7 +74,7 @@ export default function ContactUsPage() {
                     </div>
                     <div>
                       <h4>Yoursite@ex.com</h4>
-                      <p className="mb-0">(+012) 3456 7890</p>
+                      <p className="mb-0">{settingData.email}</p>
                     </div>
                   </div>
                 </div>
@@ -112,10 +131,11 @@ export default function ContactUsPage() {
             </div>
             <div className="col-12 col-xl-1 wow fadeInUp" data-wow-delay="0.3s">
               <div className="d-flex flex-xl-column align-items-center justify-content-center">
-                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i className="fab fa-facebook-f"></i></a>
-                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i className="fab fa-twitter"></i></a>
-                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href=""><i className="fab fa-instagram"></i></a>
-                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-0 me-0 me-xl-0" href=""><i className="fab fa-linkedin-in"></i></a>
+                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href={settingData.facebook} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href={settingData.twitter} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>
+                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href={settingData.instagram} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0" href={settingData.linkedin} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+                <a className="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-0 me-0 me-xl-0" href={settingData.youtube} target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>
               </div>
             </div>
             <div className="col-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -123,28 +143,28 @@ export default function ContactUsPage() {
                 <div className="bg-white rounded p-4 mb-4">
                   <h4 className="mb-3">Our Branch 01</h4>
                   <div className="d-flex align-items-center flex-shrink-0 mb-3">
-                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">123 Street New York.USA</p>
+                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">{settingData.address}</p>
                   </div>
                   <div className="d-flex align-items-center">
-                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">(+012) 3456 7890</p>
+                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">{settingData.phone}</p>
                   </div>
                 </div>
                 <div className="bg-white rounded p-4 mb-4">
                   <h4 className="mb-3">Our Branch 02</h4>
                   <div className="d-flex align-items-center mb-3">
-                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">123 Street New York.USA</p>
+                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">{settingData.address}</p>
                   </div>
                   <div className="d-flex align-items-center">
-                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">(+012) 3456 7890</p>
+                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">{settingData.phone}</p>
                   </div>
                 </div>
                 <div className="bg-white rounded p-4 mb-0">
                   <h4 className="mb-3">Our Branch 03</h4>
                   <div className="d-flex align-items-center mb-3">
-                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">123 Street New York.USA</p>
+                    <p className="mb-0 text-dark me-2">Address:</p><i className="fas fa-map-marker-alt text-primary me-2"></i><p className="mb-0">{settingData.address}</p>
                   </div>
                   <div className="d-flex align-items-center">
-                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">(+012) 3456 7890</p>
+                    <p className="mb-0 text-dark me-2">Telephone:</p><i className="fa fa-phone-alt text-primary me-2"></i><p className="mb-0">{settingData.phone}</p>
                   </div>
                 </div>
               </div>

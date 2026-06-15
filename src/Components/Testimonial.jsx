@@ -42,7 +42,6 @@ export default function Testimonial() {
 
                     <div className="testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                         <Swiper {...sliderOptions}>
-                            {/* Slide 1 */}
                             <SwiperSlide>
                                 <div className="testimonial-item p-4">
                                     <p className="mb-4">
@@ -57,8 +56,6 @@ export default function Testimonial() {
                                     </div>
                                 </div>
                             </SwiperSlide>
-
-                            {/* Slide 2 */}
                             <SwiperSlide>
                                 <div className="testimonial-item p-4">
                                     <p className="mb-4">
@@ -73,8 +70,6 @@ export default function Testimonial() {
                                     </div>
                                 </div>
                             </SwiperSlide>
-
-                            {/* Slide 3 */}
                             <SwiperSlide>
                                 <div className="testimonial-item p-4">
                                     <p className="mb-4">
