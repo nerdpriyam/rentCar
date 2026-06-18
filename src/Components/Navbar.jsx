@@ -71,12 +71,16 @@ export default function Navbar() {
                                         <NavLink to="*" className="dropdown-item">404 Page</NavLink>                                       
                                     </div>
                                 </div>
+                                <NavLink to="/admin" className="nav-item nav-link">Admin</NavLink>
                                 <NavLink to="/contactus" className="nav-item nav-link">Contact</NavLink>
 
-                                <a href="" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Priyam</a>
-                                <div className="dropdown-menu m-0">
-                                    <NavLink to="/logout" className="dropdown-item">Logout</NavLink>
-                                </div>    
+                                <div className="nav-item dropdown">
+                                    <NavLink to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Priyam</NavLink>
+                                    <div className="dropdown-menu m-0">
+                                      <NavLink to="/" className="dropdown-item">Logout</NavLink>
+                                    </div>
+                                </div>
+
                             </div>
                             {/* <a href="#" className="btn btn-primary rounded-pill py-2 px-4 ">Get Started</a> */}
                         </div>

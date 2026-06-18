@@ -14,6 +14,16 @@ import CarsPage from './Pages/CarsPage'
 import CarDetailsPage from './Pages/CarDetailsPage'
 import ErrorPage from './Pages/ErrorPage'
 
+{/*Admin import route */}
+import AdminHomePage from './Pages/Admin/AdminHomePage'
+import AdminCategoryPage from './Pages/Admin/Category/AdminCategoryPage'
+import AdminBrandPage from './Pages/Admin/Brand/AdminBrandPage'
+import AdminCreateCategoryPage from './Pages/Admin/Category/AdminCreateCategoryPage'
+import AdminUpdateCategoryPage from './Pages/Admin/Category/AdminUpdateCategoryPage'
+import AdminCreateBrandPage from './Pages/Admin/Brand/AdminCreateBrandPage'
+import AdminUpdateBrandPage from './Pages/Admin/Brand/AdminUpdateBrandPage'
+import AdminCarPage from './Pages/Admin/Car/AdminCarPage'
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -29,6 +39,21 @@ export default function App() {
         <Route path='/contactus' element={<ContactUsPage />} />
         <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
         <Route path='/tc' element={<TermsAndConditions />} />
+
+        {/* Admin Routes */}
+        <Route path='/admin' element={<AdminHomePage/>} />
+
+        <Route path='/admin/category' element={<AdminCategoryPage />} />
+        <Route path='/admin/category/create' element={<AdminCreateCategoryPage />} />
+        <Route path='/admin/category/update' element={<AdminUpdateCategoryPage />} />
+        
+        <Route path='/admin/brand' element={<AdminBrandPage/>} />
+        <Route path='/admin/brand/create' element={<AdminCreateBrandPage/>} />
+        <Route path='/admin/brand/update' element={<AdminUpdateBrandPage/>} />
+
+        <Route path='/admin/car' element={<AdminCarPage />} />
+
+        
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
