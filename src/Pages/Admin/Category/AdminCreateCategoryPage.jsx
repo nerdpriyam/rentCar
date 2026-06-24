@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
 import AdminSidebar from '../../../Components/Admin/AdminSidebar'
-import { Link } from 'react-router-dom'
+
 import ImageValidators from '../../../FormValidators/ImageValidators'
 import TextValidators from '../../../FormValidators/TextValidators'
 
+import { getCategory, createCategory } from "../../../Redux/ActionCreators/CategoryActionCreators"
 export default function AdminCreateCategoryPage() {
     let [data, setData] = useState({
         name: '',
@@ -16,9 +20,14 @@ export default function AdminCreateCategoryPage() {
     })
     let [show, setShow] = useState(false)
 
+    let CategoryStateData = useSelector(state => state.CategoryStateData)
+    let dispatch = useDispatch()
+
+    let navigate = useNavigate()
+
     function getInputData(e) {
         let name = e.target.name
-        let value = name === "pic" ? e.target.files[0].name : e.target.value
+        let value = name === "pic" ? "category/" + e.target.files[0].name : e.target.value
         // let value = name === "pic" ? e.target.files[0] : e.target.value
 
         setData({ ...data, [name]: name === "status" ? (value === "1" ? true : false) : value })
@@ -30,13 +39,28 @@ export default function AdminCreateCategoryPage() {
         if (error)
             setShow(true)
         else {
-            alert(`
-        Name : ${data.name}
-        Pic : ${data.pic}
-        Status : ${data.status}
-        `)
+            let item = CategoryStateData.find(x => x.name?.toLocaleLowerCase() === data.name?.toLocaleLowerCase())
+            if (item) {
+                setShow(true)
+                setErrorMessage({ ...errorMessage, name: "Category With This Name Already Exist" })
+                return
+            }
+
+            dispatch(createCategory({ ...data }))
+
+            // let formData = new FormData()
+            // formData.append("name",data.name)
+            // formData.append("pic",data.pic)
+            // formData.append("status",data.status)
+            // dispatch(createCategory(formData))
+
+            navigate("/admin/category")
         }
     }
+
+    useEffect(() => {
+        dispatch(getCategory())
+    }, [CategoryStateData.length])
     return (
         <>
             <div className="container-fluid">
@@ -45,7 +69,7 @@ export default function AdminCreateCategoryPage() {
                         <AdminSidebar />
                     </div>
                     <div className="col-md-9">
-                        <h5 className='bg-primary text-light text-center p-2 rounded'>Create Category
+                        <h5 className='bg-primary text-light text-center p-2'>Create Category
                             <Link to="/admin/category"><i className='bi bi-arrow-left text-light float-end'></i></Link>
                         </h5>
                         <form onSubmit={postData}>

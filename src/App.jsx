@@ -45,7 +45,7 @@ export default function App() {
 
         <Route path='/admin/category' element={<AdminCategoryPage />} />
         <Route path='/admin/category/create' element={<AdminCreateCategoryPage />} />
-        <Route path='/admin/category/update' element={<AdminUpdateCategoryPage />} />
+        <Route path='/admin/category/update:id' element={<AdminUpdateCategoryPage />} />
         
         <Route path='/admin/brand' element={<AdminBrandPage/>} />
         <Route path='/admin/brand/create' element={<AdminCreateBrandPage/>} />
